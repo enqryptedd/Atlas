@@ -1,9 +1,7 @@
-local Library = {}
+local Atlas = {}
 local Components = nil
 
--- Initialize the library
-function Library:Init()
-    -- Create Components table
+function Atlas:Init()
     Components = {
         Button = loadstring(game:HttpGet('https://raw.githubusercontent.com/enqryptedd/Atlas/main/Components/Button.lua'))(),
         Frame = loadstring(game:HttpGet('https://raw.githubusercontent.com/enqryptedd/Atlas/main/Components/Frame.lua'))(),
@@ -17,10 +15,9 @@ function Library:Init()
     return Components
 end
 
--- Create window function (main container)
-function Library:CreateWindow(name)
+function Atlas:CreateWindow(name)
     if not Components then
-        error("Please call Library:Init() before creating a window")
+        error("Please call Atlas:Init() before creating a window")
     end
     
     local window = Components.Frame:New({
@@ -32,4 +29,4 @@ function Library:CreateWindow(name)
     return window
 end
 
-return Library
+return Atlas
