@@ -1,4 +1,4 @@
-local Library = {}
+local Atlas = {}
 local Components = {}
 
 -- Load all components
@@ -12,14 +12,14 @@ local function LoadComponents()
     Components.Notification = require(script.Components.Notification)
 end
 
--- Initialize the library
-function Library:Init()
+-- Initialize the Atlas
+function Atlas:Init()
     LoadComponents()
     return Components
 end
 
 -- Create window function (main container)
-function Library:CreateWindow(name)
+function Atlas:CreateWindow(name)
     local window = Components.Frame:New({
         Name = name,
         Size = UDim2.new(0, 400, 0, 300),
@@ -29,4 +29,4 @@ function Library:CreateWindow(name)
     return window
 end
 
-return Library
+return Atlas
