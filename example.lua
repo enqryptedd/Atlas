@@ -1,11 +1,11 @@
--- Example usage of the UI Library
-local Library = loadstring(game:HttpGet('YOUR_RAW_MAIN_LUA_URL'))()
+-- Example usage of the UI Atlas
+local Atlas = loadstring(game:HttpGet('https://raw.githubusercontent.com/enqryptedd/Atlas/refs/heads/main/main.lua'))()
 
--- Initialize the library
-local UI = Library:Init()
+-- Initialize the Atlas
+local UI = Atlas:Init()
 
 -- Create a window
-local Window = Library:CreateWindow("Example UI")
+local Window = Atlas:CreateWindow("Example UI")
 
 -- Create components
 local button = UI.Button:New({
