@@ -1,24 +1,22 @@
 local Atlas = {}
 local Components = {}
 
--- Load all components
+-- Load all components from GitHub URLs
 local function LoadComponents()
-    Components.Button = require(script.Components.Button)
-    Components.Frame = require(script.Components.Frame)
-    Components.Dropdown = require(script.Components.Dropdown)
-    Components.Slider = require(script.Components.Slider)
-    Components.Toggle = require(script.Components.Toggle)
-    Components.TextBox = require(script.Components.TextBox)
-    Components.Notification = require(script.Components.Notification)
+    Components.Button = loadstring(game:HttpGet('https://raw.githubusercontent.com/enqryptedd/Atlas/refs/heads/main/Components/Button.lua'))()
+    Components.Frame = loadstring(game:HttpGet('https://raw.githubusercontent.com/enqryptedd/Atlas/refs/heads/main/Components/Frame.lua'))()
+    Components.Dropdown = loadstring(game:HttpGet('https://raw.githubusercontent.com/enqryptedd/Atlas/refs/heads/main/Components/Dropdown.lua'))()
+    Components.Slider = loadstring(game:HttpGet('https://raw.githubusercontent.com/enqryptedd/Atlas/refs/heads/main/Components/Slider.lua'))()
+    Components.Toggle = loadstring(game:HttpGet('https://raw.githubusercontent.com/enqryptedd/Atlas/refs/heads/main/Components/Toggle.lua'))()
+    Components.TextBox = loadstring(game:HttpGet('https://raw.githubusercontent.com/enqryptedd/Atlas/refs/heads/main/Components/TextBox.lua'))()
+    Components.Notification = loadstring(game:HttpGet('https://raw.githubusercontent.com/enqryptedd/Atlas/refs/heads/main/Components/Notification.lua'))()
 end
 
--- Initialize the Atlas
 function Atlas:Init()
     LoadComponents()
     return Components
 end
 
--- Create window function (main container)
 function Atlas:CreateWindow(name)
     local window = Components.Frame:New({
         Name = name,
