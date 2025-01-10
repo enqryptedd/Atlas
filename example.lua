@@ -1,19 +1,12 @@
--- Example usage of the UI Library
-local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/enqryptedd/Atlas/main/main.lua'))()
-
--- Create ScreenGui
+local Atlas = loadstring(game:HttpGet('https://raw.githubusercontent.com/enqryptedd/Atlas/main/main.lua'))()
 local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "AtlasLibrary"
+ScreenGui.Name = "Atlas"
 ScreenGui.Parent = game:GetService("CoreGui")
-
--- Initialize the library
-local UI = Library:Init()
-
--- Create a window
-local Window = Library:CreateWindow("Example UI")
+local UI = Atlas:Init()
+local Window = Atlas:CreateWindow("Example UI")
 Window.Parent = ScreenGui
 
--- Create components
+-- Examples (demo):
 local button = UI.Button:New({
     Parent = Window,
     Position = UDim2.new(0, 10, 0, 40),
