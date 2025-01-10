@@ -1,15 +1,37 @@
-local Atlas = loadstring(game:HttpGet('https://raw.githubusercontent.com/enqryptedd/Atlas/main/main.lua'))()
-local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "Atlas"
-ScreenGui.Parent = game:GetService("CoreGui")
-local UI = Atlas:Init()
-local Window = Atlas:CreateWindow("Example UI")
-Window.Parent = ScreenGui
+-- Example usage of the enhanced UI Library
+local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/enqryptedd/Atlas/main/main.lua'))()
 
--- Examples (demo):
+-- Initialize the library
+local UI = Library:Init()
+
+-- Create a window
+local Window = Library:CreateWindow("Atlas Example")
+
+-- Add items to sidebar
+local sidebarButton1 = UI.Button:New({
+    Text = "Dashboard",
+    Size = UDim2.new(1, -20, 0, 40),
+    Position = UDim2.new(0, 10, 0, 10),
+    Callback = function()
+        print("Dashboard clicked")
+    end
+})
+Window:AddToSidebar(sidebarButton1)
+
+local sidebarButton2 = UI.Button:New({
+    Text = "Settings",
+    Size = UDim2.new(1, -20, 0, 40),
+    Position = UDim2.new(0, 10, 0, 60),
+    Callback = function()
+        print("Settings clicked")
+    end
+})
+Window:AddToSidebar(sidebarButton2)
+
+-- Add components to content area
 local button = UI.Button:New({
-    Parent = Window,
-    Position = UDim2.new(0, 10, 0, 40),
+    Size = UDim2.new(0, 200, 0, 40),
+    Position = UDim2.new(0, 20, 0, 20),
     Text = "Click Me!",
     Callback = function()
         UI.Notification:New({
@@ -18,42 +40,25 @@ local button = UI.Button:New({
         })
     end
 })
+Window:AddToContent(button)
 
 local toggle = UI.Toggle:New({
-    Parent = Window,
-    Position = UDim2.new(0, 10, 0, 80),
+    Size = UDim2.new(0, 200, 0, 40),
+    Position = UDim2.new(0, 20, 0, 80),
     Text = "Toggle Feature",
     Callback = function(enabled)
         print("Toggle is now:", enabled)
     end
 })
+Window:AddToContent(toggle)
 
 local slider = UI.Slider:New({
-    Parent = Window,
-    Position = UDim2.new(0, 10, 0, 120),
+    Size = UDim2.new(0, 200, 0, 40),
+    Position = UDim2.new(0, 20, 0, 140),
     MinValue = 0,
     MaxValue = 100,
     Callback = function(value)
         print("Slider value:", value)
     end
 })
-
-local dropdown = UI.Dropdown:New({
-    Parent = Window,
-    Position = UDim2.new(0, 10, 0, 180),
-    Options = {"Option 1", "Option 2", "Option 3"},
-    Callback = function(selected)
-        print("Selected:", selected)
-    end
-})
-
-local textbox = UI.TextBox:New({
-    Parent = Window,
-    Position = UDim2.new(0, 10, 0, 220),
-    PlaceholderText = "Enter text...",
-    Callback = function(text, enterPressed)
-        if enterPressed then
-            print("Submitted text:", text)
-        end
-    end
-})
+Window:AddToContent(slider)

@@ -7,11 +7,13 @@ function Toggle:New(properties)
     local indicator = Instance.new("Frame")
     local enabled = false
     
+    -- Main toggle frame
     toggle.Size = properties.Size or UDim2.new(0, 150, 0, 30)
     toggle.Position = properties.Position or UDim2.new(0, 0, 0, 0)
     toggle.BackgroundColor3 = properties.BackgroundColor3 or Color3.fromRGB(45, 45, 45)
     toggle.BorderSizePixel = 0
     
+    -- Toggle button
     button.Size = UDim2.new(1, 0, 1, 0)
     button.BackgroundTransparency = 1
     button.Text = properties.Text or "Toggle"
@@ -21,12 +23,14 @@ function Toggle:New(properties)
     button.TextXAlignment = Enum.TextXAlignment.Left
     button.Parent = toggle
     
+    -- Toggle indicator
     indicator.Size = UDim2.new(0, 40, 0, 20)
     indicator.Position = UDim2.new(1, -45, 0.5, -10)
     indicator.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
     indicator.BorderSizePixel = 0
     indicator.Parent = toggle
     
+    -- Indicator knob
     local knob = Instance.new("Frame")
     knob.Size = UDim2.new(0, 16, 0, 16)
     knob.Position = UDim2.new(0, 2, 0.5, -8)
@@ -47,6 +51,7 @@ function Toggle:New(properties)
     UICorner3.CornerRadius = UDim.new(1, 0)
     UICorner3.Parent = knob
     
+    -- Toggle functionality
     local function updateToggle()
         enabled = not enabled
         local tweenInfo = TweenInfo.new(0.2)

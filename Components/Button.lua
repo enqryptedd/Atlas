@@ -14,11 +14,13 @@ function Button:New(properties)
     button.TextSize = properties.TextSize or 14
     button.AutoButtonColor = true
     button.BorderSizePixel = 0
-
+    
+    -- Rounded corners
     local UICorner = Instance.new("UICorner")
     UICorner.CornerRadius = UDim.new(0, 6)
     UICorner.Parent = button
-
+    
+    -- Hover effect
     button.MouseEnter:Connect(function()
         game:GetService("TweenService"):Create(button, TweenInfo.new(0.2), {
             BackgroundColor3 = button.BackgroundColor3:Lerp(Color3.new(1, 1, 1), 0.2)
