@@ -1,23 +1,23 @@
-local Atlas = {}
-local Components = {}
+local Library = {}
 
--- Load all components from GitHub URLs
-local function LoadComponents()
-    Components.Button = loadstring(game:HttpGet('https://raw.githubusercontent.com/enqryptedd/Atlas/refs/heads/main/Components/Button.lua'))()
-    Components.Frame = loadstring(game:HttpGet('https://raw.githubusercontent.com/enqryptedd/Atlas/refs/heads/main/Components/Frame.lua'))()
-    Components.Dropdown = loadstring(game:HttpGet('https://raw.githubusercontent.com/enqryptedd/Atlas/refs/heads/main/Components/Dropdown.lua'))()
-    Components.Slider = loadstring(game:HttpGet('https://raw.githubusercontent.com/enqryptedd/Atlas/refs/heads/main/Components/Slider.lua'))()
-    Components.Toggle = loadstring(game:HttpGet('https://raw.githubusercontent.com/enqryptedd/Atlas/refs/heads/main/Components/Toggle.lua'))()
-    Components.TextBox = loadstring(game:HttpGet('https://raw.githubusercontent.com/enqryptedd/Atlas/refs/heads/main/Components/TextBox.lua'))()
-    Components.Notification = loadstring(game:HttpGet('https://raw.githubusercontent.com/enqryptedd/Atlas/refs/heads/main/Components/Notification.lua'))()
-end
-
-function Atlas:Init()
-    LoadComponents()
+-- Initialize the library
+function Library:Init()
+    -- Create Components table
+    local Components = {
+        Button = loadstring(game:HttpGet('https://raw.githubusercontent.com/enqryptedd/Atlas/main/Components/Button.lua'))(),
+        Frame = loadstring(game:HttpGet('https://raw.githubusercontent.com/enqryptedd/Atlas/main/Components/Frame.lua'))(),
+        Dropdown = loadstring(game:HttpGet('https://raw.githubusercontent.com/enqryptedd/Atlas/main/Components/Dropdown.lua'))(),
+        Slider = loadstring(game:HttpGet('https://raw.githubusercontent.com/enqryptedd/Atlas/main/Components/Slider.lua'))(),
+        Toggle = loadstring(game:HttpGet('https://raw.githubusercontent.com/enqryptedd/Atlas/main/Components/Toggle.lua'))(),
+        TextBox = loadstring(game:HttpGet('https://raw.githubusercontent.com/enqryptedd/Atlas/main/Components/TextBox.lua'))(),
+        Notification = loadstring(game:HttpGet('https://raw.githubusercontent.com/enqryptedd/Atlas/main/Components/Notification.lua'))()
+    }
+    
     return Components
 end
 
-function Atlas:CreateWindow(name)
+-- Create window function (main container)
+function Library:CreateWindow(name)
     local window = Components.Frame:New({
         Name = name,
         Size = UDim2.new(0, 400, 0, 300),
@@ -27,4 +27,4 @@ function Atlas:CreateWindow(name)
     return window
 end
 
-return Atlas
+return Library
